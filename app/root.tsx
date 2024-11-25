@@ -15,7 +15,7 @@ import { useDidMount } from "./hooks/useDidMount";
 import { AppRoot } from "@telegram-apps/telegram-ui";
 import { ErrorBoundary } from "@/app/components/ErrorBoundary";
 import { ErrorPage } from "@/app/components/ErrorPage";
-import Script from "next/script";
+// import Script from "next/script";
 
 function App(props: PropsWithChildren) {
   const lp = useLaunchParams();

@@ -4,12 +4,12 @@ import { useEffect, useState, Suspense } from 'react';
 import { Task } from './interfaces';
 import { useSearchParams } from 'next/navigation';
 import { TaskItem } from './components/custom/task'
-// Add this type declaration at the top of the file
+import {  } from '@telegram-apps/sdk-react';
 
 function HomeContent() {
   const [tasks, setTasks] = useState<Task[]>([])
   const searchParams = useSearchParams();
-
+  
   const handleTaskComplete = (taskId: number, completed: boolean) => {
     setTasks(tasks.map(task => 
       task.id === taskId ? { ...task, completed } : task
