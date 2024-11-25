@@ -5,15 +5,6 @@ import { Task } from './interfaces';
 import { useSearchParams } from 'next/navigation';
 import { TaskItem } from './components/custom/task'
 // Add this type declaration at the top of the file
-declare global {
-  interface Window {
-    Telegram: {
-      WebApp: {
-        initData: string;
-      };
-    };
-  }
-}
 
 function HomeContent() {
   const [tasks, setTasks] = useState<Task[]>([])
@@ -26,8 +17,13 @@ function HomeContent() {
   };
 
   useEffect(() => {
-    
-    if (window.Telegram && window.Telegram.WebApp) {
+    // Initialize Telegram WebApp
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+    }
+
+    if (window.Telegram?.WebApp) {
       const initData = window.Telegram.WebApp.initData;
 
       fetch('/api/validate', {
@@ -55,7 +51,7 @@ function HomeContent() {
         setTasks(customData.tasks)
       }
     }
-  }, [tasks, setTasks, searchParams]);
+  }, [searchParams]);
 
   console.log(tasks)
   return (
