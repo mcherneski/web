@@ -10,7 +10,6 @@ import { ErrorPage } from '@/app/components/error-page';
 import { useDidMount } from '@/app/hooks/useDidMount';
 import { init } from '@/app/init';
 
-import './styles.css';
 import { useClientOnce } from '@/app/hooks/useClientOnce';
 
 function RootInner({ children }: PropsWithChildren) {
