@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { Task } from './interfaces';
 import { useSearchParams } from 'next/navigation';
 import { Tasks } from './components/custom/tasks'
@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-const TelegramWebApp = () => {
+function HomeContent() {
   const [tasks, setTasks] = useState<Task[]>([])
   const searchParams = useSearchParams();
 
@@ -63,6 +63,14 @@ const TelegramWebApp = () => {
       <Tasks tasks={tasks} onTaskComplete={handleTaskComplete} />
     </div>
   );
-};
+}
 
-export default TelegramWebApp;
+function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+export default Home;
