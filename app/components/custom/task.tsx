@@ -6,9 +6,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
+} from "@/app/components/ui/accordion"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Checkbox } from "@/app/components/ui/checkbox"
 import { cn } from "@/lib/utils"
 
 interface TaskProps {

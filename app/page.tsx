@@ -4,7 +4,7 @@ import { useEffect, useState, Suspense } from 'react';
 import { Task } from './interfaces';
 import { useSearchParams } from 'next/navigation';
 import { TaskItem } from './components/custom/task'
-import {  } from '@telegram-apps/sdk-react';
+// import {  } from '@telegram-apps/sdk-react';
 
 function HomeContent() {
   const [tasks, setTasks] = useState<Task[]>([])
