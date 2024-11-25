@@ -46,10 +46,10 @@ function App(props: PropsWithChildren) {
 
   return (
     <>
-      <Script
+      {/* <Script
         src="https://telegram.org/js/telegram-web-app.js"
         strategy="beforeInteractive"
-      />
+      /> */}
       <AppRoot
         appearance={miniApp.isDark ? "dark" : "light"}
         platform={["macos", "ios"].includes(lp.platform) ? "ios" : "base"}
