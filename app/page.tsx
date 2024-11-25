@@ -3,7 +3,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { Task } from './interfaces';
 import { useSearchParams } from 'next/navigation';
-import { Tasks } from './components/custom/tasks'
+import { TaskItem } from './components/custom/task'
 // Add this type declaration at the top of the file
 declare global {
   interface Window {
@@ -57,10 +57,19 @@ function HomeContent() {
     }
   }, [tasks, setTasks, searchParams]);
 
+  console.log(tasks)
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Telegram Web App</h1>
-      <Tasks tasks={tasks} onTaskComplete={handleTaskComplete} />
+      <div className="space-y-4">
+        {tasks.map(task => (
+          <TaskItem 
+            key={task.id} 
+            task={task} 
+            onComplete={handleTaskComplete} 
+          />
+        ))}
+      </div>
     </div>
   );
 }
